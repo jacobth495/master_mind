@@ -18,9 +18,3 @@ class Board
     p @key
   end
 end
-
-myboard = Board.new
-
-myboard.get_guess
-
-myboard.print

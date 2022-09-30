@@ -5,7 +5,7 @@ class Board
       @board.push(Array.new(3, nil))
     end
     @key = []
-    4.times do
+    3.times do
       @key.push(rand(1..5))
     end
   end
@@ -17,4 +17,16 @@ class Board
   def show_key
     p @key
   end
+
+  def get_guess
+    3.times do
+      guesses = gets.chomp.to_i
+    end
+  end
 end
+
+myboard = Board.new
+
+myboard.get_guess
+
+myboard.print

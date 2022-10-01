@@ -4,10 +4,11 @@ class Player
   end
 
   def get_guess
-    $guesses = []
-    3.times do
-      $guesses.push(gets.chomp.to_i)
-    end
+    puts 'Enter a 3 digit number'
+    $guesses = gets.chomp
+    x = $guesses.split('')
+    x = x.map {|x| x.to_i}
+    $guesses = x
   end
 
   def show_guesses

@@ -1,13 +1,16 @@
-class Board
+require "./lib/player.rb"
+
+class Board < Player
+  attr_accessor :guesses, :key
   def initialize
     @board = []
     11.times do 
       @board.push(Array.new(3, nil))
     end
-    @key = []
-    3.times do
-      @key.push(rand(1..5))
-    end
+    @key = [2,1,3]
+    #3.times do
+      #@key.push(rand(1..5))
+    #end
   end
 
   def print
@@ -16,5 +19,22 @@ class Board
 
   def show_key
     p @key
+  end
+  #fix to handle repeats in key
+  def check_guesses
+    guess_reply = []
+    $guesses.each_with_index do |x, i| 
+      if @key.any?(x) == true
+        guess_reply[i] = 'o'
+      end
+    end
+    $guesses.each_index do |gi|
+      a = $guesses[gi]
+      b = @key[gi]
+      if a == b
+        guess_reply[gi] = 'x'
+      end
+    end
+    puts guess_reply.join
   end
 end

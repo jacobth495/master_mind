@@ -7,3 +7,4 @@ me = Player.new("Jacob")
 me.get_guess
 myboard.print
 me.show_guesses
+myboard.check_guesses

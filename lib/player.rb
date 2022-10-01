@@ -1,17 +1,16 @@
 class Player
-  attr_accessor :guesses
   def initialize(name)
     @name = name
   end
 
   def get_guess
-    @guesses = []
+    $guesses = []
     3.times do
-      @guesses.push(gets.chomp.to_i)
+      $guesses.push(gets.chomp.to_i)
     end
   end
 
   def show_guesses
-    p guesses
+    p $guesses
   end
 end

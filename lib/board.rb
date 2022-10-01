@@ -1,7 +1,7 @@
 require "./lib/player.rb"
 
 class Board < Player
-  attr_accessor :guesses, :key
+  attr_accessor :guesses, :key, :guess_reply
   def initialize
     @board = []
     11.times do 
@@ -22,19 +22,23 @@ class Board < Player
   end
   #fix to handle repeats in key
   def check_guesses
-    guess_reply = []
+    @@guess_reply = []
     $guesses.each_with_index do |x, i| 
       if @key.any?(x) == true
-        guess_reply[i] = 'o'
+        @@guess_reply[i] = 'o'
       end
     end
     $guesses.each_index do |gi|
       a = $guesses[gi]
       b = @key[gi]
       if a == b
-        guess_reply[gi] = 'x'
+        @@guess_reply[gi] = 'x'
       end
     end
-    puts guess_reply.join
+    puts @@guess_reply.join
+  end
+
+  def add_to_board(index)
+    @board[index] = @@guess_reply.join + "/ /" +$guesses.join
   end
 end

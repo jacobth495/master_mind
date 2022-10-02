@@ -25,14 +25,22 @@ class Board < Player
     @@guess_reply = []
     $guesses.each_with_index do |x, i| 
       if @key.any?(x) == true
-        @@guess_reply[i] = 'o'
+        if $guesses.count(x) > 1 && i > 0
+          next
+        else
+          @@guess_reply[i] = 'o'
+        end
       end
     end
     $guesses.each_index do |gi|
       a = $guesses[gi]
       b = @key[gi]
       if a == b
-        @@guess_reply[gi] = 'x'
+        if @@guess_reply[gi] == nil
+          @@guess_reply[gi - 1] = 'x'
+        else
+          @@guess_reply[gi] = 'x'
+        end
       end
     end
     puts @@guess_reply.join

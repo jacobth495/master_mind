@@ -5,18 +5,16 @@ myboard = Board.new
 me = Player.new("Jacob")
 
 
-#me.show_guesses
+myboard.show_key
 i = 1
 
 
 until i == 11 do 
+  puts "Round #{i}"
   me.get_guess
-  if i == 1
-    myboard.print
-  end
   myboard.check_guesses
   myboard.add_to_board(i - 1)
-  myboard.print
+  myboard.prints
   myboard.winner?
   i += 1
   break if myboard.winner? == true

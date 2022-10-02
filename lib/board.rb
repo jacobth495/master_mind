@@ -14,8 +14,11 @@ class Board < Player
     end
   end
 
-  def print
-    @board.each {|x| p x}
+  def prints
+    @board.each_with_index do |x, i| 
+      puts "Round #{i + 1}"
+      p x 
+    end
   end
 
   def show_key
@@ -46,7 +49,7 @@ class Board < Player
   end
 
   def add_to_board(index)
-    @board[index] = @@guess_reply.join + "/ /" +$guesses.join
+    @board[index] = @@guess_reply.join + "/" +$guesses.join
   end
 
   def winner?

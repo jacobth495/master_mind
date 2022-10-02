@@ -10,7 +10,7 @@ class Player
     until x.count <= 3
       puts 'Please enter a 3 digit number'
       $guesses = gets.chomp
-      $guesses.split('')
+      x = $guesses.split('')
     end
     x = x.map {|x| x.to_i}
     $guesses = x

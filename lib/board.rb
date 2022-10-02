@@ -43,10 +43,15 @@ class Board < Player
         end
       end
     end
-    puts @@guess_reply.join
   end
 
   def add_to_board(index)
     @board[index] = @@guess_reply.join + "/ /" +$guesses.join
+  end
+
+  def winner?
+    if @@guess_reply == ['x', 'x', 'x']
+      puts 'Congrats!!! You cracked the code!'
+    end
   end
 end

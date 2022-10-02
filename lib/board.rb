@@ -7,10 +7,11 @@ class Board < Player
     11.times do 
       @board.push(Array.new(3, nil))
     end
-    @key = [2,1,3]
-    #3.times do
-      #@key.push(rand(1..5))
-    #end
+    #test key
+    @key = []
+    3.times do
+      @key.push(rand(0..9))
+    end
   end
 
   def print

@@ -21,3 +21,7 @@ until i == 11 do
   i += 1
   break if myboard.winner? == true
 end
+
+if myboard.winner? == false
+  puts 'Sorry better luck next time!!!'
+end

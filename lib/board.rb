@@ -36,11 +36,10 @@ class Board < Player
       a = $guesses[gi]
       b = @key[gi]
       if a == b
-        if @@guess_reply[gi] == nil
-          @@guess_reply[gi - 1] = 'x'
-        else
-          @@guess_reply[gi] = 'x'
+        until @@guess_reply[gi] == 'o'
+          gi -= 1
         end
+        @@guess_reply[gi] = 'x'
       end
     end
   end
@@ -52,6 +51,9 @@ class Board < Player
   def winner?
     if @@guess_reply == ['x', 'x', 'x']
       puts 'Congrats!!! You cracked the code!'
+      true
+    else
+      false
     end
   end
 end

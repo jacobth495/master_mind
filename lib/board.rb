@@ -56,7 +56,7 @@ class Board < Player
   end
 
   def add_to_board(index)
-    @board[index] = @@guess_reply.join + "/" +$guesses.join
+    @board[index] = @@guess_reply.join + " " +$guesses.join
   end
 
   def winner?

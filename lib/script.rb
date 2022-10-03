@@ -1,8 +1,9 @@
 require "./lib/board.rb"
 require "./lib/player.rb"
 
-myboard = Board.new
 me = Player.new("Jacob")
+myboard = Board.new
+
 
 
 myboard.show_key
@@ -17,10 +18,15 @@ if $codebreaker == true
     myboard.prints
     myboard.winner?
     i += 1
-    break if myboard.winner? == true
+    if myboard.winner? == true
+      break
+    end
   end
-elsif $mastermind == true
-
+else
+  puts "Round #{i}"
+  me.get_guess
+  myboard.check_guesses
+  myboard.add_to_board(i - 1)
 end
 
 if myboard.winner? == false

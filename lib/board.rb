@@ -9,8 +9,15 @@ class Board < Player
     end
     #test key
     @key = []
-    3.times do
-      @key.push(rand(0..9))
+    if $codebreaker == true
+      3.times do
+        @key.push(rand(0..9))
+      end
+    else
+      puts 'Please select a 3 digit number to be the code'
+      @key = gets.chomp
+      @key = @key.split('')
+      @key = @key.map {|x| x.to_i}
     end
   end
 

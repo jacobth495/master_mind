@@ -21,16 +21,23 @@ class Player
   end
 
   def get_guess
-    puts 'Enter a 3 digit number'
-    $guesses = gets.chomp
-    x = $guesses.split('')
-    until x.count <= 3
-      puts 'Please enter a 3 digit number'
+    if $codebreaker == true
+      puts 'Enter a 3 digit number'
       $guesses = gets.chomp
       x = $guesses.split('')
+      until x.count <= 3
+        puts 'Please enter a 3 digit number'
+        $guesses = gets.chomp
+        x = $guesses.split('')
+      end
+      x = x.map {|x| x.to_i}
+      $guesses = x
+    else
+      $guesses = []
+      3.times do
+        $guesses.push(rand(0..9))
+      end
     end
-    x = x.map {|x| x.to_i}
-    $guesses = x
   end
 
   def show_guesses

@@ -36,5 +36,9 @@ else
 end
 
 if myboard.winner? == false
-  puts 'Sorry better luck next time!!!'
+  if $codebreaker == true
+    puts 'Sorry better luck next time!!!'
+  else
+    puts 'Congrats you beat the computer!!!'
+  end
 end

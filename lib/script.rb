@@ -3,32 +3,33 @@ require "./lib/player.rb"
 
 me = Player.new("Jacob")
 myboard = Board.new
-
+$i = 1
 
 
 myboard.show_key
-i = 1
+
 
 if $codebreaker == true
-  until i == 12 do 
-    puts "Round #{i}"
+  until $i == 12 do 
+    puts "Round #{$i}"
     me.get_guess
     myboard.check_guesses
-    myboard.add_to_board(i - 1)
+    myboard.add_to_board($i - 1)
     myboard.prints
     myboard.winner?
-    i += 1
+    $i += 1
     if myboard.winner? == true
       break
     end
   end
 else
-  until i == 12 do 
-    me.get_guess
+  until $i == 12 do 
+    myboard.get_computer_guess
     myboard.check_guesses
-    myboard.add_to_board(i - 1)
+    myboard.add_to_board($i - 1)
     myboard.prints
-    i += 1
+    myboard.change_guess
+    $i += 1
     if myboard.winner? == true
       break
     end

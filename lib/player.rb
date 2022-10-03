@@ -29,7 +29,11 @@ class Player
       $guesses = gets.chomp
       x = $guesses.split('')
     end
-    $guesses = x.map {|x| x.to_i}
+    $guesses = x.map do |x| 
+      unless x == ' ' 
+        x.to_i
+      end
+    end
   end
 
   def show_guesses

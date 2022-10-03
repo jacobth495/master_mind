@@ -1,6 +1,23 @@
 class Player
+  attr_accessor :player
+
   def initialize(name)
     @name = name
+    coder_or_breaker
+  end
+
+  def coder_or_breaker
+    puts 'Please enter mastermind or codebreaker'
+    @player = gets.chomp
+    $codebreaker = false
+    $mastermind = false
+    if player == 'mastermind'
+      $mastermind = true
+    elsif player == 'codebreaker'
+      $codebreaker = true
+    else
+      $codebreaker = true
+    end
   end
 
   def get_guess

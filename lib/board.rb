@@ -1,7 +1,7 @@
 require "./lib/player.rb"
 
 class Board < Player
-  attr_accessor :guesses, :key, :guess_reply
+  attr_accessor :key, :guess_reply
   def initialize
     @board = []
     11.times do 
